@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Slacker News</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+  <div class="wrapper">
+    <h1>Articles for Slackers</h1>
+
+    <ul>
+      <% @articles.each do |article| %>
+      <li>
+        <ul>
+          <li> <%= article[0] %> </li>
+          <li> <%= article[1] %> </li>
+          <li><a href=<%= article[2] %> target="_blank"><%= article[2] %></a></li>
+        </ul>
+      </li>
+      <% end %>
+    </ul>
+
+    <a href="/articles/new" class="change page">Post a new article --></a>
+  </div>
+  </body>
+</html>

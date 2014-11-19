@@ -1,0 +1,32 @@
+body {
+  font-family: Helvetica;
+}
+
+input, label {
+  display: block;
+}
+
+input {
+  margin-bottom: 20px;
+}
+
+ul, li {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+li > ul {
+  margin-bottom: 20px;
+}
+
+li > ul li:first-child {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+li > ul li:nth-child(2) {
+  font-style: italic;
+}

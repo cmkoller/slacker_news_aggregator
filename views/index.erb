@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Slacker News</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+  <div class="wrapper">
+
+    <h1>Slacker News - Submit a New Article</h1>
+
+    <form action="/articles" method="post">
+      <label for="article_name">Article Name:</label>
+      <input type="text" id="article_name" name="article_name" required/>
+
+      <label for="article_description">Article Description:</label>
+      <input type="text" id="article_description" name="article_description"
+      pattern=".{20,}" required
+      oninvalid="setCustomValidity('Please enter at least 20 characters')"/>
+
+      <% existing_urls = '' %>
+      <% @urls.each do |url| %>
+        <% existing_urls << "(?!^#{url})" %>
+      <% end %>
+      <% existing_urls << "(^.*$)" %>
+
+      <label for="article_url">Article URL:</label>
+      <input type="url" id="article_url" name="article_url"
+      oninvalid="setCustomValidity('This article has already been submitted!')"
+      required pattern=<%= existing_urls %> />
+
+      <input type="submit" />
+    </form>
+
+    <a href="/articles" class="change-page">View existing articles --></a>
+  </div>
+  </body>
+</html>
